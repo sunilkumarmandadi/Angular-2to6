@@ -8,19 +8,33 @@ import {EmployeesListComponent} from './Employees/Employees-list/employees-list.
  import { EmployeesComponent } from './Employees/employees.component';
 import { EmployeestartComponent } from './Employees/employeestart/employeestart.component';
 import { EmployeeRoutingModule } from './Employees/employee-routing.module';
+import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+// import { AuthGuard } from './auth/auth.guard';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
+import { CurdgridComponent } from './curdgrid/curdgrid.component';
+import { EmployeeEditComponent } from './Employees/employee-edit/employee-edit.component';
+// import { LogoutComponent } from './auth/logout/logout.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
- {path: 'employees', component: EmployeesComponent, children: [{
+  { path: '', redirectTo: '/home', pathMatch: 'full', canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'about', component: AboutComponent , canActivate: [AuthGuard]},
+  { path: 'contact', component: ContactComponent, canActivate: [AuthGuard]},
+  {path: 'employees', component: EmployeesComponent, children: [{
     path: '', component: EmployeestartComponent
   }  ,
-    {path: ':id', component: EmpdetailsComponent}
+    {path: ':id', component: EmpdetailsComponent},
+    {path: ':id/edit', component: EmployeeEditComponent},
+    {path: 'new', component: EmployeeEditComponent}
 
-]
-}
+], canActivate: [AuthGuard]
+},
+{path: 'signup', component: SignupComponent},
+{path: 'signIn', component: SigninComponent},
+{ path: 'curdgrid', component: CurdgridComponent, canActivate: [AuthGuard]}
 
 
  /* {path: 'employee', loadChildren: () =>  EmployeeRoutingModule}*/

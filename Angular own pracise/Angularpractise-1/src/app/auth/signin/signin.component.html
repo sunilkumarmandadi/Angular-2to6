@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="form-content">
+    <div class="row">
+      <h3 class="body">Login</h3>
+      <form name="form" (ngSubmit)="login()" #f="ngForm" style="border: red 1px" >
+        <div class="form-group">
+          <div >
+            <span class="input-group-text"><i class="icon-user"></i></span>
+          </div>
+          <input
+            type="text"
+            name="UserName"
+            [(ngModel)]="model.UserName"
+            placeholder="LoginName*"
+            required
+
+          />
+        </div>
+        <div class="form-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"><i class="icon-lock"></i></span>
+          </div>
+          <input
+            type="password"
+            name="Passward"
+            [(ngModel)]="model.Password"
+            required
+            minlength="8"
+            placeholder="Password*"
+          />
+        </div>
+        <div>
+          <p
+            style="color:#E92626;font-size:20px;font-weight:normal"
+            Class="success"
+          >
+            {{ errorMessage }}
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label for="remember-me" class="text-info"
+            ><span>Remember me</span>
+            <span
+              ><input
+                id="remember-me"
+                name="remember-me"
+                type="checkbox"/></span></label
+          ><br />
+        <!--  <input
+            type="submit"
+            name="submit"
+            class="btn btn-info btn-md"
+            value="submit"
+          /> -->
+        </div>
+        <div>
+        <button name="submit" class="btn btn-primary" type="submit" [disabled]="f.invalid">Login</button>
+      </div>
+        <div id="register-link" class="form-group" style= "text-align: center">
+          <div>
+          <a href="#" class="text-info">Register here</a></div>
+          <div>
+          <button type="button" class="btn btn-link">
+              Forgot password?
+            </button>
+          </div>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>

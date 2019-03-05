@@ -1,0 +1,42 @@
+
+ <!--<div class="container">
+<ul class="list-group">
+  <li class="list-group-item" (click)="onSelected()">
+      <p class="list-group-item-text"> {{employee.EmpName}} </p>
+      <p class="list-group-item-text"> {{employee.Email}} </p>
+      <p class="list-group-item-text"> {{employee.Salary}} </p>
+  </li>
+
+</ul></div>-->
+<!-- [routerLink]= "[index]" -->
+<a
+
+  class="list-group-item clearfix" [routerLink]="[index]"
+  routerLinkActive="active" style="cursor: pointer">
+
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ employee.EmpName }}</h4>
+
+    <p class="list-group-item-text"> {{employee.Salary}} </p>
+  </div>
+  <!-- <span class="pull-right">
+        <img
+          [src]="recipe.imagePath"
+          alt="{{ recipe.name }}"
+          class="img-responsive"
+          style="max-height: 50px;">
+      </span> -->
+</a>
+ <!-- <a class="list-group-item clearfix" style="cursor: pointer;"
+
+ routerLinkActive = 'active'>
+
+
+      <p class="list-group-item-text"> {{employee.EmpName}} </p>
+      <p class="list-group-item-text"> {{employee.Email}} </p>
+      <p class="list-group-item-text"> {{employee.Salary}} </p>
+
+
+  </a> -->
+
+

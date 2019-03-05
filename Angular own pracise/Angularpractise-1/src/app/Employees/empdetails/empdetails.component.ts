@@ -10,17 +10,24 @@ import { Employees } from '../emp.model';
   styleUrls: ['./empdetails.component.css']
 })
 export class EmpdetailsComponent implements OnInit {
-  Empdetails: Employees;
+  employee1: Employees;
   id: number;
-  @Input() employee1: Employees;
-  constructor(private dataservice: DataService, private route: ActivatedRoute) { }
+  // @Input() employee1: Employees;
+  constructor(private dataservice: DataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params
     .subscribe((params: Params) => {
       this.id = +params['id'];
-    this.Empdetails = this.dataservice.getUserDatabyId(this.id);
+      this.employee1 = this.dataservice.getUserDatabyId(this.id);
     // console.log(this.dataservice.getUserDatabyId(this.id));
   });
+}
+onEditemp() {
+  this.router.navigate(['edit'], {relativeTo: this.route});
+}
+onDeleteemp() {
+  this.dataservice.deleteEmployee(this.id);
+  this.router.navigate(['/employees']);
 }
 }

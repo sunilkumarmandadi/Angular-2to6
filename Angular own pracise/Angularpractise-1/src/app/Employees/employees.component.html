@@ -8,12 +8,13 @@
 
     </div>
     <div class="col-md-7">
+  <router-outlet></router-outlet>
 
-      <app-empdetails
+    <!--  <app-empdetails
       *ngIf="selectedemployee; else infoText" [employee1]="selectedemployee"></app-empdetails>
   <ng-template #infoText>
     <p>Please select the Employee!</p>
-  </ng-template>
+  </ng-template> -->
     </div>
     </div>
   </div>

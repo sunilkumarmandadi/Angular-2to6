@@ -10,21 +10,19 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./employees-list.component.css']
 })
 export class EmployeesListComponent implements OnInit {
-   @Output() employeewasselected = new EventEmitter<Employees>(); //// this is the out put for emplyoees.component.html page.
+  // @Output() employeewasselected = new EventEmitter<Employees>(); //// this is the out put for emplyoees.component.html page.
   employees: Employees[];
 
-  constructor(private dataserv: DataService
-    ) { }
+  constructor(private dataserv: DataService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit() {
-      this.dataserv.getusers().subscribe(
-      (employees: Employees[]) => {
-this.employees = employees;
-
-      });
-      // this.employees = this.dataserv.getusers();
+    const token = localStorage.getItem('token');
+    this.dataserv.getusers().subscribe((employees: Employees[]) => {
+      this.employees = employees;
+      this.dataserv.usersdata = employees;
+    });
   }
-  onRecipeSelected(employee: Employees) {
-this.employeewasselected.emit(employee);
+  onAddnewemp() {
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 }

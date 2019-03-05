@@ -1,0 +1,44 @@
+.note
+{
+    text-align: center;
+    height: 80px;
+    background: -webkit-linear-gradient(left, #0072ff, lightblue);
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+}
+.form-content
+{
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+}
+
+.form-control{
+    border-radius:1.5rem;
+    width: 50%;
+}
+.btnSubmit
+{
+    border:none;
+    border-radius:1.5rem;
+    padding: 1%;
+    width: 10%;
+    cursor: pointer;
+    background: #0062cc;
+    color: #fff;
+}
+.btnSubmit :disabled {
+  background-color: black;
+}
+.ng-valid,
+.ng-valid.required {
+  background-color: lightgreen;
+}
+
+/* .ng-invalid:not(form) {
+  background-color: lightcoral;
+} */
+.ng-untouched {
+background-color:   #fff;
+}

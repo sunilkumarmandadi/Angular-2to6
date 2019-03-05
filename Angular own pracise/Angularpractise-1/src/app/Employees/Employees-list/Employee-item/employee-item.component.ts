@@ -18,8 +18,7 @@ export class EmployeeItemComponent implements OnInit {
   ngOnInit() {
     // const ss = this.employee;
   }
-  onSelected() {
-this.dataService.employeeSelected.emit(this.employee);
-  }
-
+onSelected(id: number) {
+this.dataService.employeeselected.emit(this.employee);
+}
 }
